@@ -42,10 +42,9 @@ def main(date):
     step4_pallets = step3_sell
     step4_pallets['Pallets'] = step4_pallets['qty']/step4_pallets['Units/Pallet']
 
-    # Step 5: Add multiplier info.
+    # Step 5: Adjust Sellable/Non Sellable multiplier info.
     step5_multiplier = step4_pallets
     step5_multiplier['multiplier'] = step5_multiplier['Sellable/Non Sellable'].apply(lambda x: 2 if x == 'NonSellable' else 1)
-    step5_multiplier.loc[step5_multiplier["item"].isin(prod2["item"]), 'multiplier'] = 2
 
     # Step 6: Compute pallet positions.
     step6_positions = step5_multiplier
