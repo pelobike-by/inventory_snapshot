@@ -12,13 +12,11 @@ def main(date):
     inventory = pd.read_csv(f'Inventory_Query_US_CA_{date}.csv')
     prod_info = pd.read_excel('Product_Info.xlsx')
     site_info = pd.read_excel('Site_Info.xlsx')
-    prod2 = pd.read_csv('prod2.csv')
 
     # Remove whitespace from column names
     inventory = helper.remove_whitespace_from_column_names(inventory)
     prod_info = helper.remove_whitespace_from_column_names(prod_info)
     site_info = helper.remove_whitespace_from_column_names(site_info)
-    prod2 = helper.remove_whitespace_from_column_names(prod2)
 
     # Transform the data
     # Step 0: Only look at accessories and hardware data in inventory.
